@@ -9,7 +9,7 @@ object WordCount {
     val sc = new SparkContext(conf)
 
     val begin = System.currentTimeMillis();
-    val textFile = sc.textFile("big.txt")
+    val textFile = sc.textFile("files/big.txt")
     val counts = textFile.flatMap(line => line.split(" "))
       .map(word => (word, 1))
       .reduceByKey(_ + _)
